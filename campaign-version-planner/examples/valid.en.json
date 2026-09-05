@@ -1,0 +1,27 @@
+{
+  "durations": [
+    15,
+    30
+  ],
+  "channels": [
+    {
+      "id": "website",
+      "label": "Website demonstration",
+      "aspectRatios": [
+        "16:9"
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social demonstration",
+      "aspectRatios": [
+        "9:16",
+        "1:1"
+      ]
+    }
+  ],
+  "locales": [
+    "en",
+    "ru"
+  ]
+}

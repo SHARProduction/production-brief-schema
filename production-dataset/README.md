@@ -25,6 +25,8 @@ configs:
 
 Dataset release 1.0.0. Authored taxonomy and synthetic data: [CC-BY-4.0](LICENSE-CC-BY-4.0). Code, JSON Schemas and documentation: [MIT](LICENSE). [License boundaries and attribution](LICENSE-STATUS.md). [Русский](README.ru.md).
 
+Published by [SHAR Production](https://sharprod.com/). Canonical dataset page: [SHARProduction/production-brief-taxonomy](https://huggingface.co/datasets/SHARProduction/production-brief-taxonomy).
+
 ## Dataset purpose
 
 A small bilingual vocabulary and fixture set for production-brief interfaces, documentation and completeness-validator demonstrations. It contains **18 authored taxonomy records** (methods, tasks, deliverables and channels) and **8 synthetic briefs** (four fictional scenarios in RU/EN). It is not a market study, ML benchmark, production cost dataset or evidence of client outcomes. `train` is the loader split name only; no evaluation split or training efficacy is claimed.

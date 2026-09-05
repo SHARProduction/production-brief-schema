@@ -1,0 +1,16 @@
+{
+  "durations": [
+    0,
+    30
+  ],
+  "channels": [
+    {
+      "id": "social",
+      "label": "=SUM(A1)",
+      "aspectRatios": [
+        "0:9"
+      ]
+    }
+  ],
+  "locales": []
+}

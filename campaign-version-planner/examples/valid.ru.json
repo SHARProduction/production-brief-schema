@@ -1,0 +1,27 @@
+{
+  "durations": [
+    15,
+    30
+  ],
+  "channels": [
+    {
+      "id": "website",
+      "label": "Учебный пример для сайта",
+      "aspectRatios": [
+        "16:9"
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Учебный пример для соцсетей",
+      "aspectRatios": [
+        "9:16",
+        "1:1"
+      ]
+    }
+  ],
+  "locales": [
+    "ru",
+    "en"
+  ]
+}

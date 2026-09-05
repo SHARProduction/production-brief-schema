@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+import {readFileSync,statSync} from 'node:fs';import {planCampaign,versionsToCsv,planToJson} from './planner.mjs';
+const [file,format='json',language='en',...extra]=process.argv.slice(2);
+try{if(!file||extra.length||!['json','csv'].includes(format)||!['en','ru'].includes(language))throw Error('Usage: node cli.mjs input.json [json|csv] [en|ru]');if(statSync(file).size>262144)throw Error('Input exceeds 256 KiB.');const input=JSON.parse(readFileSync(file,'utf8').replace(/^\uFEFF/,''));const result=planCampaign(input,{language});if(!result.valid){process.stdout.write(planToJson(result));process.exitCode=1;}else{process.stdout.write(format==='csv'?versionsToCsv(result.versions):planToJson(result));if(format==='csv'&&result.warnings.length)process.stderr.write(JSON.stringify({warnings:result.warnings})+'\n');}}
+catch(error){process.stdout.write(JSON.stringify({valid:false,errors:[{path:'',code:'input',message:error.message}],warnings:[],versions:[],total:0})+'\n');process.exitCode=2;}

@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 4093,
-      "sha256": "0cf396b85f26200b51f034b791a38c18a338631cd4b6fda86792f04e6b98caab"
+      "bytes": 4454,
+      "sha256": "e629e5d0666fe5c6f8b78c48972a571dc1843000cebca419c43d86018d26b416"
     },
     {
       "path": "LICENSE",
@@ -114,13 +114,13 @@
     },
     {
       "path": "production-dataset/README.md",
-      "bytes": 5456,
-      "sha256": "c25730029df10dcd93af514d6b376b035c9f34268c9b736360b0d192798fda66"
+      "bytes": 5654,
+      "sha256": "9079cbdaf083f9c796d4a4504ce9945571123647d7d23d51d00061335d84b7e6"
     },
     {
       "path": "production-dataset/README.ru.md",
-      "bytes": 4233,
-      "sha256": "d5abe1034665f9983c1420bfc0d7bc0749f20dc43a8da7e9294d11b5070a6a06"
+      "bytes": 4462,
+      "sha256": "a27c18a077b48218dbd0f37f271828c1cbf8142bb35f15efa062ef4009e57d7b"
     },
     {
       "path": "production-dataset/VERSION",
@@ -179,8 +179,8 @@
     },
     {
       "path": "brief-browser/README.md",
-      "bytes": 4566,
-      "sha256": "1f9db35a4b81c67a25012a3ab77b0e9febbd720aecbedc3782f3f2bbf08fd08f"
+      "bytes": 4507,
+      "sha256": "0a3bcb15355f9a6c3dc875bc45d7112b6d449a8b92f1e6486025e1f2109be538"
     },
     {
       "path": "brief-browser/package.json",
@@ -199,8 +199,8 @@
     },
     {
       "path": "brief-browser/src/index.html",
-      "bytes": 4763,
-      "sha256": "b2dc845e4bab534a4681a952c746fc4e95f84ef6c63cd6ec2c5578df0a5efa7e"
+      "bytes": 5115,
+      "sha256": "4c7054add0da7e21379ebbce192fba3760f859e5864eb46a58f7339658acb3aa"
     },
     {
       "path": "brief-browser/src/app.mjs",
@@ -219,8 +219,8 @@
     },
     {
       "path": "brief-browser/dist/index.html",
-      "bytes": 4763,
-      "sha256": "b2dc845e4bab534a4681a952c746fc4e95f84ef6c63cd6ec2c5578df0a5efa7e"
+      "bytes": 5115,
+      "sha256": "4c7054add0da7e21379ebbce192fba3760f859e5864eb46a58f7339658acb3aa"
     },
     {
       "path": "brief-browser/dist/app.mjs",
@@ -270,7 +270,7 @@
     {
       "path": "brief-browser/dist/release.json",
       "bytes": 1341,
-      "sha256": "f660195a8990ce651067bfe1110b8da0ec51e174b13b18342548841e98c8fdef"
+      "sha256": "17af36dead644c37d5e18d436ecf1389b7fc7b55341d6eefa88a7e649060fba7"
     },
     {
       "path": "brief-browser/LICENSE",
@@ -346,6 +346,86 @@
       "path": "public-mcp-examples/LICENSE",
       "bytes": 1072,
       "sha256": "0da04badd92549b5cbed13eb1862563301f98d555a68910a4900b9a519aa9e07"
+    },
+    {
+      "path": "campaign-version-planner/README.md",
+      "bytes": 5147,
+      "sha256": "d151f2922cbcee391106a79f284aceb669ba4e0bb95fb3c1f11d2e8d40879ad9"
+    },
+    {
+      "path": "campaign-version-planner/README.ru.md",
+      "bytes": 5216,
+      "sha256": "64417a5581964360f1bff7e0102611662f8a557c0afa02315f8729b909c9ee28"
+    },
+    {
+      "path": "campaign-version-planner/LICENSE-STATUS.md",
+      "bytes": 895,
+      "sha256": "c7c3f8c54875b72a68ec534922b7478ad7898cb16abd9db429a7730b9d4b0306"
+    },
+    {
+      "path": "campaign-version-planner/package.json",
+      "bytes": 385,
+      "sha256": "1a38f55282c947ce05360b1913b073d56becc97a7ec43433fa356febea5bffd5"
+    },
+    {
+      "path": "campaign-version-planner/planner.mjs",
+      "bytes": 7041,
+      "sha256": "2115056bbf0d9014159da769c7727a85d512c364ce0f0df1fdce458af173f384"
+    },
+    {
+      "path": "campaign-version-planner/cli.mjs",
+      "bytes": 1015,
+      "sha256": "29dfd62444539d3629b7fe4a813d53089e0fee6b7cd9e6a73ce0c16358d0a950"
+    },
+    {
+      "path": "campaign-version-planner/input.schema.json",
+      "bytes": 1980,
+      "sha256": "8e13d42f2fcbc5401ebff49aad1ab56196f12a7e5840769fd2056173a4d37518"
+    },
+    {
+      "path": "campaign-version-planner/output.schema.json",
+      "bytes": 1871,
+      "sha256": "b132ab4615ecfa8669061f89973f887661d7ae8de1a478e10142959813a64748"
+    },
+    {
+      "path": "campaign-version-planner/examples/valid.ru.json",
+      "bytes": 413,
+      "sha256": "731b5514c090ca1589244f29906814e5909f66f3e7764572ef5b82ef36209a48"
+    },
+    {
+      "path": "campaign-version-planner/examples/valid.en.json",
+      "bytes": 358,
+      "sha256": "228994fa7bf71aeb58ce3cfa313c576cea2e8ae1fc4a0ec6d88c19e861bbdab9"
+    },
+    {
+      "path": "campaign-version-planner/examples/invalid.json",
+      "bytes": 184,
+      "sha256": "6ad503f715377eaf6a09f78125b0924b67e4f2444ec5b1a9e0ffab449861f591"
+    },
+    {
+      "path": "campaign-version-planner/examples/malformed.txt",
+      "bytes": 13,
+      "sha256": "b9417c956b0806018395c19b3d738e94d3faf25a0abd953f81353f64a7ad0e13"
+    },
+    {
+      "path": "campaign-version-planner/tests/planner.test.mjs",
+      "bytes": 4853,
+      "sha256": "1db55e87596cce8b095893fa0c0f986f5ec3d6e7c89bfc7b35113c7488be8b96"
+    },
+    {
+      "path": "campaign-version-planner/tests/browser-smoke.mjs",
+      "bytes": 1685,
+      "sha256": "5094fb03cf3c9ed1c00897fab36b19f0ec39b4afd72933f4d6948d72aa306fc2"
+    },
+    {
+      "path": "campaign-version-planner/LICENSE",
+      "bytes": 1072,
+      "sha256": "0da04badd92549b5cbed13eb1862563301f98d555a68910a4900b9a519aa9e07"
+    },
+    {
+      "path": "campaign-version-planner/LICENSE-CC-BY-4.0",
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
     }
   ],
   "privacy_review": "Exact file allowlist, no symlinks, no evidence/internal corpus, source scan. License scopes specified in each module."
