@@ -1,0 +1,15 @@
+{
+  "name": "shar-brief-browser",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node test.mjs"
+  },
+  "license": "(MIT AND CC-BY-4.0)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ares3333333/production-brief-schema.git",
+    "directory": "brief-browser"
+  }
+}

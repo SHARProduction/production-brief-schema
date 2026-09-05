@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:shar:production-brief:1.0.0",
+  "title": "SHAR production brief completeness profile 1.0.0",
+  "description": "Local preparation profile derived from the public planning fields. Stricter completeness rules; not an MCP submission contract.",
+  "type": "object",
+  "required": [
+    "objective",
+    "audience",
+    "deliverables",
+    "channels",
+    "launchDate",
+    "budgetContext",
+    "rightsConstraints"
+  ],
+  "properties": {
+    "objective": {
+      "type": "string",
+      "title": "Project objective",
+      "description": "What the video must communicate or help the business accomplish.",
+      "minLength": 3,
+      "maxLength": 1000,
+      "pattern": "\\S"
+    },
+    "audience": {
+      "type": "string",
+      "title": "Audience",
+      "description": "Primary viewers, buyers or stakeholders.",
+      "minLength": 2,
+      "maxLength": 800,
+      "pattern": "\\S"
+    },
+    "deliverables": {
+      "type": "array",
+      "title": "Deliverables",
+      "description": "Requested master and adaptation outputs.",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 160,
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "channels": {
+      "type": "array",
+      "title": "Channels",
+      "description": "Where the deliverables will be published or shown.",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "launchDate": {
+      "type": "string",
+      "title": "Target launch date",
+      "description": "Requested public launch or delivery milestone.",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "budgetContext": {
+      "type": "string",
+      "title": "Budget context",
+      "description": "Planning range or procurement constraint; not a binding quote.",
+      "minLength": 2,
+      "maxLength": 300,
+      "pattern": "\\S"
+    },
+    "rightsConstraints": {
+      "type": "string",
+      "title": "Rights and compliance",
+      "description": "Territory, term, media, talent, music, product and AI-use constraints.",
+      "minLength": 2,
+      "maxLength": 1000,
+      "pattern": "\\S"
+    },
+    "references": {
+      "type": "array",
+      "title": "References",
+      "description": "Optional public URLs used only as human review references; the read-only interface does not fetch them.",
+      "maxItems": 12,
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "maxLength": 2048,
+        "pattern": "^https?://",
+        "x-no-credentials": true
+      }
+    },
+    "locales": {
+      "type": "array",
+      "title": "Locales",
+      "description": "Required language versions.",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "enum": [
+          "ru",
+          "en"
+        ]
+      }
+    },
+    "aspectRatios": {
+      "type": "array",
+      "title": "Aspect ratios",
+      "description": "Requested output ratios.",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "pattern": "^[1-9][0-9]?:[1-9][0-9]?$"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "title": "Additional context",
+      "description": "Optional constraints that do not fit another field.",
+      "maxLength": 2000
+    }
+  },
+  "additionalProperties": false,
+  "x-submission-enabled": false,
+  "x-profile-version": "1.0.0"
+}

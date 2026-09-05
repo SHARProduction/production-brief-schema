@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SHAR taxonomy record 1.0.0",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "origin": {
+      "const": "authored"
+    },
+    "method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_urls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "license_status": {
+      "const": "APPROVED"
+    },
+    "category": {
+      "enum": [
+        "method",
+        "task",
+        "deliverable",
+        "channel"
+      ]
+    },
+    "label_ru": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "definition_ru": {
+      "type": "string",
+      "minLength": 1
+    },
+    "definition_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "const": "CC-BY-4.0"
+    },
+    "attribution": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attribution_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "origin",
+    "method",
+    "created_at",
+    "source_urls",
+    "license_status",
+    "category",
+    "label_ru",
+    "label_en",
+    "definition_ru",
+    "definition_en",
+    "license",
+    "attribution",
+    "attribution_url"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+import {mkdir,copyFile,writeFile,readFile,readdir} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+const root=new URL('./',import.meta.url), dist=new URL('dist/',root);
+await mkdir(dist,{recursive:true});
+const copies=[['LICENSE','LICENSE'],['LICENSE-CC-BY-4.0','LICENSE-CC-BY-4.0'],['LICENSE-STATUS.md','LICENSE-STATUS.md'],['src/favicon.svg','favicon.svg'],['src/index.html','index.html'],['src/style.css','style.css'],['src/app.mjs','app.mjs'],['../production-brief/validator.mjs','validator.mjs'],['../production-brief/schema.mjs','schema.mjs'],['../production-brief/brief.schema.json','brief.schema.json'],['../production-dataset/data/examples.json','examples.json']];
+const allowed=new Set([...copies.map(x=>x[1]),'examples.mjs','release.json','_headers']);
+for(const f of await readdir(dist)) if(!allowed.has(f)) throw Error(`Unexpected dist file: ${f}; inspect manually before building`);
+for(const [source,target] of copies) await copyFile(new URL(source,root),new URL(target,dist));
+const examples=JSON.parse(await readFile(new URL('examples.json',dist),'utf8'));
+await writeFile(new URL('examples.mjs',dist),`export default ${JSON.stringify(examples)};\n`);
+await writeFile(new URL('_headers',dist),`/*\n  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'\n  Referrer-Policy: no-referrer\n  X-Content-Type-Options: nosniff\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
+const files={}; for(const name of [...allowed].filter(x=>x!=='release.json').sort()) files[name]=createHash('sha256').update(await readFile(new URL(name,dist))).digest('hex');
+await writeFile(new URL('release.json',dist),JSON.stringify({name:'SHAR Production brief checker',version:'0.1.0',status:'LOCAL_READY',license:'MIT',dataLicense:'CC-BY-4.0',licenseNotice:'LICENSE-STATUS.md',files},null,2)+'\n');
+console.log(`Built explicit public-safe allowlist: ${fileURLToPath(dist)}`);

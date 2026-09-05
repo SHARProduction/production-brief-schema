@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {validateBrief} from '../validator.mjs';
+const base={objective:'Explain the product',audience:'B2B buyers',deliverables:['60-second master'],channels:['website'],launchDate:'2028-02-29',budgetContext:'To be agreed',rightsConstraints:'Rights review required'};
+test('minimal valid and unchanged input',()=>{const before=JSON.stringify(base);assert.deepEqual(validateBrief(base),{valid:true,errors:[]});assert.equal(JSON.stringify(base),before)});
+test('missing required, null, arrays, unknown fields',()=>{for(const value of [null,[],{}, {...base,unexpected:true}]) assert.equal(validateBrief(value).valid,false)});
+test('blank text and empty array item rejected',()=>{for(const key of ['objective','audience','budgetContext','rightsConstraints'])assert.equal(validateBrief({...base,[key]:'   '}).valid,false);assert.equal(validateBrief({...base,deliverables:['']}).valid,false)});
+test('real Gregorian dates, including leap boundaries',()=>{for(const date of ['2027-02-29','2028-02-30','2028-13-01','2028-00-01','2028-2-01','0000-01-01'])assert.equal(validateBrief({...base,launchDate:date}).valid,false,date);assert.equal(validateBrief({...base,launchDate:'2000-02-29'}).valid,true)});
+test('array and text boundaries use Unicode code points',()=>{assert.equal(validateBrief({...base,objective:'😀'.repeat(1000),deliverables:Array(20).fill('x')}).valid,true);assert.equal(validateBrief({...base,objective:'a'.repeat(1001)}).valid,false);assert.equal(validateBrief({...base,channels:Array(21).fill('x')}).valid,false)});
+test('references accept public web scheme only, no credentials',()=>{for(const url of ['javascript:alert(1)','file:///etc/passwd','https://u:p@example.com','not a url'])assert.equal(validateBrief({...base,references:[url]}).valid,false);assert.equal(validateBrief({...base,references:['https://example.com/reference']}).valid,true)});
+test('locale and ratio constraints',()=>{for(const patch of [{locales:['de']},{aspectRatios:['0:9']},{aspectRatios:['16:0']},{deliverables:[2]},{channels:[]}])assert.equal(validateBrief({...base,...patch}).valid,false)});
+test('localized errors carry stable paths and codes',()=>{const en=validateBrief({}, {language:'en'}),ru=validateBrief({}, {language:'ru'});assert.equal(en.errors[0].path,'/objective');assert.equal(en.errors[0].code,'required');assert.notEqual(en.errors[0].message,ru.errors[0].message)});
+test('schema module equals distributable JSON',async()=>{const {schema}=await import('../schema.mjs');assert.deepEqual(schema,JSON.parse(readFileSync(new URL('../brief.schema.json',import.meta.url))))});
+test('CLI valid invalid malformed and missing file',()=>{for(const [file,exit] of [['valid.en.json',0],['invalid.json',1],['malformed.txt',2],['missing.json',2]]){const r=spawnSync(process.execPath,[new URL('../cli.mjs',import.meta.url).pathname.replace(/^\/(\w:)/,'$1'),new URL('../examples/'+file,import.meta.url).pathname.replace(/^\/(\w:)/,'$1')],{encoding:'utf8'});assert.equal(r.status,exit,r.stderr);assert.ok(JSON.parse(r.stdout))}});

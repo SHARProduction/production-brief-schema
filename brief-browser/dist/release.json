@@ -1,0 +1,23 @@
+{
+  "name": "SHAR Production brief checker",
+  "version": "0.1.0",
+  "status": "LOCAL_READY",
+  "license": "MIT",
+  "dataLicense": "CC-BY-4.0",
+  "licenseNotice": "LICENSE-STATUS.md",
+  "files": {
+    "LICENSE": "0da04badd92549b5cbed13eb1862563301f98d555a68910a4900b9a519aa9e07",
+    "LICENSE-CC-BY-4.0": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+    "LICENSE-STATUS.md": "590fdc26bd93f0af8b8f3feae43129cea58dfe41352d7772029a8d4d62f6a6f1",
+    "_headers": "86f1d930ecbf23ebea2b1d33731caa402986fabfcc4418b39a650d7e133ff64d",
+    "app.mjs": "f821f56409385453cf2a7e98069d956e9ef207edc829d4901a9d39558e4ee2df",
+    "brief.schema.json": "915e8bc59b094c9732b79a77e2fb27869fbf962369ed29f8eedab3eda32c8f76",
+    "examples.json": "2bcd1db228232c19152273d7b243531277e823652899b6ec99eabd9601be03d6",
+    "examples.mjs": "044adbaecde75e34abd6cc25f526c7b4ad55f77e8c35a9769eee5dd1c8c1d0f6",
+    "favicon.svg": "3262b80ef774861902bd7638bf6d482b94edb2978fbb804b6cfa2a439b2b2b8f",
+    "index.html": "b2dc845e4bab534a4681a952c746fc4e95f84ef6c63cd6ec2c5578df0a5efa7e",
+    "schema.mjs": "b2c5e2cf0a9a04d455752ad58b99c9598027d5bd85ddad86cde30facb938aec2",
+    "style.css": "d81fa0fa76891553314b3cdbcf334f4d5b8fc9a6222b206256c5102ff4449031",
+    "validator.mjs": "e92b4f7e30e003264d1e1144456e316f1ee125028a455d775d42bc31bfcc7175"
+  }
+}
